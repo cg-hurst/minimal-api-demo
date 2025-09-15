@@ -1,0 +1,6 @@
+@Api.Minimal_HostAddress = http://localhost:5135
+
+GET {{Api.Minimal_HostAddress}}/hello/
+Accept: application/json
+
+###
