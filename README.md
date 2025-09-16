@@ -8,7 +8,6 @@ This project demonstrates the use of **ASP.NET Core Minimal APIs** to build a li
 
 - **Minimal API Design**: Lightweight and modular API endpoints.
 - **Exception Handling**: Centralized middleware for handling unhandled exceptions.
-- **OpenAPI Documentation**: Swagger UI for testing and exploring the API (enabled in development).
 - **Dependency Injection**: Services like `BookService` are injected into endpoints.
 - **Asynchronous Programming**: All endpoints and services are fully asynchronous.
 - **Health Checks**: A `/health` endpoint to monitor the application's status.
