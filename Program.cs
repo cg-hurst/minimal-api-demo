@@ -1,6 +1,6 @@
 using Api.Minimal.Api;
-using Api.Minimal.Books.Models;
 using Api.Minimal.Books.Services;
+using Api.Minimal.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +14,9 @@ builder.Services
     ;
 
 var app = builder.Build();
+
+app.UseMiddleware<LoggingMiddleware>();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

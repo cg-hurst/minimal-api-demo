@@ -1,4 +1,4 @@
-@Api.Minimal_HostAddress = http://localhost:5135
+@Api.Minimal_HostAddress = https://localhost:7101
 
 GET {{Api.Minimal_HostAddress}}/health
 Accept: application/json
@@ -50,6 +50,11 @@ Accept: application/json
 
 
 GET {{Api.Minimal_HostAddress}}/books/5
+Accept: application/json
+
+###
+
+GET {{Api.Minimal_HostAddress}}/crash
 Accept: application/json
 
 ###
