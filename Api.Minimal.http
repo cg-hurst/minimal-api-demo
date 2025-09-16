@@ -1,6 +1,55 @@
 @Api.Minimal_HostAddress = http://localhost:5135
 
-GET {{Api.Minimal_HostAddress}}/hello/
+GET {{Api.Minimal_HostAddress}}/health
+Accept: application/json
+
+###
+
+GET {{Api.Minimal_HostAddress}}/books/
+Accept: application/json
+
+###
+
+GET {{Api.Minimal_HostAddress}}/books/1
+Accept: application/json
+
+###
+
+POST {{Api.Minimal_HostAddress}}/books/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 5,
+  "title": "The Lord of the Rings",
+  "author": "J.R.R. Tolkein",
+  "yearPublished": 1954,
+  "genre": "Fantasy"
+}
+
+###
+
+PUT {{Api.Minimal_HostAddress}}/books/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 5,
+  "title": "The Lord of the Rings",
+  "author": "J.R.R. Tolkien",
+  "yearPublished": 1954,
+  "genre": "Fantasy"
+}
+
+###
+
+DELETE {{Api.Minimal_HostAddress}}/books/5
+Accept: application/json
+
+###
+
+
+GET {{Api.Minimal_HostAddress}}/books/5
 Accept: application/json
 
 ###
