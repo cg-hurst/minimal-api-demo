@@ -1,6 +1,5 @@
 ﻿using Api.Minimal.Books.Models;
 using Api.Minimal.Books.Services;
-using FluentAssertions;
 
 namespace Api.Minimal.Tests.ServiceTests;
 
@@ -22,7 +21,7 @@ public class BookServiceTests
         var books = await service.GetAllBooksAsync();
 
         // Assert
-        books.Should().NotBeEmpty();
+        Assert.NotEmpty(books);
     }
 
     [Fact]
@@ -35,8 +34,8 @@ public class BookServiceTests
         var book = await service.GetBookByIdAsync(1);
 
         // Assert
-        book.Should().NotBeNull();
-        book!.Title.Should().Be("To Kill a Mockingbird");
+        Assert.NotNull(book);
+        Assert.Equal("To Kill a Mockingbird", book!.Title);
     }
 
     [Fact]
@@ -50,10 +49,10 @@ public class BookServiceTests
         var result = await service.AddBookAsync(newBook);
 
         // Assert
-        result.Should().BeTrue();
+        Assert.True(result);
 
         var addedBook = await service.GetBookByIdAsync(5);
-        addedBook.Should().NotBeNull();
+        Assert.NotNull(addedBook);
     }
 
     [Fact]
@@ -67,10 +66,10 @@ public class BookServiceTests
         var result = await service.UpdateBookAsync(updatedBook);
 
         // Assert
-        result.Should().BeTrue();
+        Assert.True(result);
         var book = await service.GetBookByIdAsync(1);
-        book.Should().NotBeNull();
-        book!.Genre.Should().Be("Classic Fiction");
+        Assert.NotNull(book);
+        Assert.Equal("Classic Fiction", book!.Genre);
     }
 
     [Fact]
@@ -83,10 +82,10 @@ public class BookServiceTests
         var result = await service.DeleteBookAsync(1);
 
         // Assert
-        result.Should().BeTrue();
+        Assert.True(result);
 
         var addedBook = await service.GetBookByIdAsync(1);
-        addedBook.Should().BeNull();
+        Assert.Null(addedBook);
     }
 
     [Fact]
@@ -100,7 +99,7 @@ public class BookServiceTests
         var result = await service.AddBookAsync(duplicateBook);
 
         // Assert
-        result.Should().BeFalse();
+        Assert.False(result);
     }
 
     [Fact]
@@ -114,7 +113,7 @@ public class BookServiceTests
         var result = await service.UpdateBookAsync(nonExistentBook);
 
         // Assert
-        result.Should().BeFalse();
+        Assert.False(result);
     }
 
     [Fact]
@@ -127,7 +126,7 @@ public class BookServiceTests
         var result = await service.DeleteBookAsync(999);
 
         // Assert
-        result.Should().BeFalse();
+        Assert.False(result);
     }
 
     [Fact]
@@ -140,6 +139,6 @@ public class BookServiceTests
         var book = await service.GetBookByIdAsync(999);
 
         // Assert
-        book.Should().BeNull();
+        Assert.Null(book);
     }
 }
