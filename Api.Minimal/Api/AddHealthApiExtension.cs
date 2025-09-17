@@ -15,11 +15,12 @@ namespace Api.Minimal.Api
                 .WithName("HealthCheck");
 
 
-            if (app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName == "Test")
             {
                 app
                     .MapGet("/crash", async (BookService service) =>
                     {
+                        await Task.CompletedTask;
                         throw new Exception("Simulated exception for testing purposes.");
                     })
                     .WithName("SimulateException");

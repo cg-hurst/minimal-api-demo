@@ -1,6 +1,7 @@
 using Api.Minimal.Api;
 using Api.Minimal.Books.Services;
 using Api.Minimal.Middleware;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,3 +34,6 @@ app
 
 
 app.Run();
+
+// Make the Program class accessible for testing
+public partial class Program { }

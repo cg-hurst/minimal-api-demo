@@ -63,3 +63,18 @@ The application will start on `https://localhost:7101`.
 - **`AddHealthApiExtension.cs`**: Defines the `Health` API endpoint.
 - **`BookService.cs`**: Provides in-memory data storage and operations for books.
 - **`ExceptionHandlerMiddleware.cs`**: Handles unhandled exceptions globally.
+
+---
+
+## Test Coverage Results
+
+**Run Coverage Report**
+
+```bash
+dotnet test --collect:"XPlat Code Coverage"
+```
+
+**Generate Report**
+```bash
+reportgenerator -reports:<path to xml>/coverage.cobertura.xml -targetdir:coverage-report
+```
